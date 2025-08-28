@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://psl4auwk3c7n"]
+
+[ext_resource type="Texture2D" uid="uid://fasgekqsqn8o" path="res://it_mouth_bigger.png" id="1_aq3gq"]
+
+[sub_resource type="Curve" id="Curve_87jna"]
+_data = [Vector2(0, 0.5), 0.0, 1.88235, 0, 1, Vector2(0.102, 0.692), 0.0, 0.0, 0, 0, Vector2(0.368, 0.8), 0.0, 0.0, 0, 0, Vector2(0.612, 0.76), 0.0, 0.0, 0, 0, Vector2(0.943, 0.861), 0.0, 0.0, 0, 0, Vector2(1, 0.9), 0.68421, 0.0, 1, 0]
+point_count = 6
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_8old0"]
+curve = SubResource("Curve_87jna")
+
+[sub_resource type="SphereMesh" id="SphereMesh_kmapa"]
+radius = 0.465
+height = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_ntq7i"]
+radius = 8.215
+height = 4.845
+
+[sub_resource type="SphereMesh" id="SphereMesh_6fjbm"]
+radius = 1.325
+
+[sub_resource type="SphereMesh" id="SphereMesh_3cmag"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_po2h1"]
+radius = 4.075
+height = 10.78
+
+[node name="it_head" type="Node2D"]
+
+[node name="head" type="MeshInstance2D" parent="."]
+z_index = 1
+scale = Vector2(137, 200.5)
+mesh = SubResource("RibbonTrailMesh_8old0")
+
+[node name="headSphere" type="MeshInstance2D" parent="head"]
+position = Vector2(0, -0.545)
+mesh = SubResource("SphereMesh_kmapa")
+
+[node name="eyes" type="Node2D" parent="."]
+z_index = 2
+position = Vector2(0, 49.725)
+scale = Vector2(2.275, 2.275)
+
+[node name="eyeLeft" type="MeshInstance2D" parent="eyes"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+position = Vector2(-13, -46)
+scale = Vector2(1.371, 3.30237)
+mesh = SubResource("SphereMesh_ntq7i")
+
+[node name="eyeLeft_white" type="MeshInstance2D" parent="eyes"]
+modulate = Color(0.894922, 0.894922, 0.894922, 1)
+z_index = 3
+position = Vector2(-13, -46)
+scale = Vector2(1.116, 2.688)
+mesh = SubResource("SphereMesh_ntq7i")
+
+[node name="eyeRight_white" type="MeshInstance2D" parent="eyes"]
+modulate = Color(0.894922, 0.894922, 0.894922, 1)
+z_index = 3
+position = Vector2(13, -46)
+scale = Vector2(1.116, 2.688)
+mesh = SubResource("SphereMesh_ntq7i")
+
+[node name="eyeRight" type="MeshInstance2D" parent="eyes"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+position = Vector2(13, -46)
+scale = Vector2(1.371, 3.30237)
+mesh = SubResource("SphereMesh_ntq7i")
+
+[node name="irisLeft" type="MeshInstance2D" parent="eyes"]
+modulate = Color(0.133333, 0.690196, 1, 1)
+z_index = 4
+position = Vector2(-13, -46)
+scale = Vector2(1.371, 3.30237)
+mesh = SubResource("SphereMesh_6fjbm")
+
+[node name="irisRight" type="MeshInstance2D" parent="eyes"]
+modulate = Color(0.133333, 0.690196, 1, 1)
+z_index = 4
+position = Vector2(13, -46)
+scale = Vector2(1.371, 3.30237)
+mesh = SubResource("SphereMesh_6fjbm")
+
+[node name="nose" type="MeshInstance2D" parent="."]
+modulate = Color(0.956863, 0.141176, 0.219608, 1)
+z_index = 2
+position = Vector2(0, -11)
+scale = Vector2(37.042, 33.75)
+mesh = SubResource("SphereMesh_3cmag")
+
+[node name="mouth" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, 48)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("1_aq3gq")
+
+[node name="hair" type="MeshInstance2D" parent="."]
+modulate = Color(0.945098, 0.101961, 0.168627, 1)
+position = Vector2(0, -44.765)
+rotation = 1.5708
+scale = Vector2(25.72, 25.72)
+mesh = SubResource("CapsuleMesh_po2h1")
