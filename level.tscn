@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt2dl1gdt055f"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_xqnpj"]
+size = Vector2(1920, 1080)
+
+[node name="level" type="Node2D"]
+
+[node name="background" type="MeshInstance2D" parent="."]
+modulate = Color(0.670588, 1, 0.176471, 1)
+mesh = SubResource("QuadMesh_xqnpj")
