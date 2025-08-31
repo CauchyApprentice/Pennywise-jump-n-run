@@ -8,6 +8,10 @@ radius = 25.75
 height = 69.05
 
 [node name="balloon" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+linear_damp_mode = 1
+linear_damp = 2.5
 script = ExtResource("1_ch5ni")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
