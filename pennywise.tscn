@@ -1,11 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkjnmdittj63h"]
+[gd_scene load_steps=7 format=3 uid="uid://bkjnmdittj63h"]
 
 [ext_resource type="PackedScene" uid="uid://b4qrk6manmu4g" path="res://it_body.tscn" id="2_bsokt"]
-[ext_resource type="Texture2D" uid="uid://b8u7jds2ybaee" path="res://pw_front.png" id="2_s3jwq"]
+[ext_resource type="Texture2D" uid="uid://b7mvpikqmg5g3" path="res://pw_face_centered.png" id="2_h0gp7"]
+[ext_resource type="Texture2D" uid="uid://b4rx4jsif37fc" path="res://pw_face_left_centered.png" id="3_b1ui2"]
+[ext_resource type="Texture2D" uid="uid://14aer410v40" path="res://pw_face_right_centered.png" id="4_22pyv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66xut"]
 radius = 90.61
 height = 530.85
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2yi0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h0gp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b1ui2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_h0gp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_22pyv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="pennywise" type="CharacterBody2D"]
 
@@ -14,11 +36,10 @@ position = Vector2(0, 189.575)
 scale = Vector2(4.225, 4.225)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 106.175)
+position = Vector2(0, 88.335)
 shape = SubResource("CapsuleShape2D_66xut")
 
-[node name="it_head" type="Sprite2D" parent="."]
-position = Vector2(-12.815, 0)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_s3jwq")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.215, 0.215)
+sprite_frames = SubResource("SpriteFrames_2yi0y")
+autoplay = "default"
