@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bptuv2df0j6aj"]
+[gd_scene load_steps=5 format=3 uid="uid://bptuv2df0j6aj"]
 
 [ext_resource type="PackedScene" uid="uid://oxkrbhkqn1pp" path="res://terrain.tscn" id="1_k1bs7"]
 [ext_resource type="PackedScene" uid="uid://bkjnmdittj63h" path="res://pennywise.tscn" id="2_b0nuw"]
-[ext_resource type="Script" path="res://pennywise.gd" id="3_n5wce"]
-[ext_resource type="PackedScene" uid="uid://bvc8gdgtnsp4y" path="res://balloon.tscn" id="4_qaaub"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="4_yj6nj"]
 [ext_resource type="PackedScene" uid="uid://bt2dl1gdt055f" path="res://level.tscn" id="5_7shhw"]
 
@@ -14,15 +12,12 @@ position = Vector2(0, 269)
 scale = Vector2(165.874, 17.013)
 
 [node name="pennywise" parent="." instance=ExtResource("2_b0nuw")]
-scale = Vector2(0.275, 0.275)
-script = ExtResource("3_n5wce")
-
-[node name="balloon" parent="." instance=ExtResource("4_qaaub")]
-position = Vector2(-424, 194)
+scale = Vector2(0.175, 0.175)
 
 [node name="level" parent="." instance=ExtResource("5_7shhw")]
 z_index = -1
-position = Vector2(0, -442.17)
+position = Vector2(-9, -549)
+scale = Vector2(0.54, 0.54)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -305)

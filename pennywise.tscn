@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkjnmdittj63h"]
+[gd_scene load_steps=8 format=3 uid="uid://bkjnmdittj63h"]
 
-[ext_resource type="PackedScene" uid="uid://b4qrk6manmu4g" path="res://it_body.tscn" id="2_bsokt"]
-[ext_resource type="Texture2D" uid="uid://b7mvpikqmg5g3" path="res://pw_face_centered.png" id="2_h0gp7"]
-[ext_resource type="Texture2D" uid="uid://b4rx4jsif37fc" path="res://pw_face_left_centered.png" id="3_b1ui2"]
-[ext_resource type="Texture2D" uid="uid://14aer410v40" path="res://pw_face_right_centered.png" id="4_22pyv"]
+[ext_resource type="Script" path="res://pennywise.gd" id="1_ifba0"]
+[ext_resource type="Texture2D" uid="uid://b7mvpikqmg5g3" path="res://Sprites/pw_face_centered.png" id="2_h0gp7"]
+[ext_resource type="Texture2D" uid="uid://b4rx4jsif37fc" path="res://Sprites/pw_face_left_centered.png" id="3_b1ui2"]
+[ext_resource type="Texture2D" uid="uid://14aer410v40" path="res://Sprites/pw_face_right_centered.png" id="4_22pyv"]
+[ext_resource type="Texture2D" uid="uid://dhco83c3vfmrv" path="res://Sprites/pennywise_dress.png" id="5_k48kq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66xut"]
-radius = 90.61
-height = 530.85
+radius = 176.31
+height = 1131.5
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2yi0y"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgji0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -25,22 +26,38 @@ animations = [{
 "texture": ExtResource("4_22pyv")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_22pyv")
+}],
+"loop": true,
+"name": &"running",
 "speed": 1.0
 }]
 
 [node name="pennywise" type="CharacterBody2D"]
-
-[node name="it_body" parent="." instance=ExtResource("2_bsokt")]
-position = Vector2(0, 40.89)
-scale = Vector2(7.565, 7.565)
+script = ExtResource("1_ifba0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 88.335)
+visible = false
+z_index = 2
+position = Vector2(0, 85.625)
 shape = SubResource("CapsuleShape2D_66xut")
 
-[node name="face" type="AnimatedSprite2D" parent="."]
+[node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -179.675)
 scale = Vector2(0.215, 0.215)
-sprite_frames = SubResource("SpriteFrames_2yi0y")
-autoplay = "default"
+sprite_frames = SubResource("SpriteFrames_mgji0")
+animation = &"idle"
+
+[node name="dress" type="Sprite2D" parent="."]
+position = Vector2(0, 369.88)
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("5_k48kq")
+
+[node name="balloon_timer" type="Timer" parent="."]
+one_shot = true

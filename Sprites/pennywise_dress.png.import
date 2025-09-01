@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4rx4jsif37fc"
-path="res://.godot/imported/pw_face_left_centered.png-a0d85442e337b9dd90e5430b44dfe172.ctex"
+uid="uid://dhco83c3vfmrv"
+path="res://.godot/imported/pennywise_dress.png-290c969f1d20636a629d999793d01e29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pw_face_left_centered.png"
-dest_files=["res://.godot/imported/pw_face_left_centered.png-a0d85442e337b9dd90e5430b44dfe172.ctex"]
+source_file="res://Sprites/pennywise_dress.png"
+dest_files=["res://.godot/imported/pennywise_dress.png-290c969f1d20636a629d999793d01e29.ctex"]
 
 [params]
 

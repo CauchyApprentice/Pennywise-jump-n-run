@@ -4,23 +4,21 @@ extends CharacterBody2D
 const SPEED = 600
 const JUMP_VELOCITY = -800.0
 var balloon_scene = preload("res://balloon.tscn")
+var balloon_cooldown: float = 1
 
-var action_state: ActionState
+var state: State
+var state_factory: StateFactory
 
 
-func shoot_balloon():
-	var ball: RigidBody2D = balloon_scene.instantiate()
-	get_parent().add_child(ball)
-	ball.position = position
-	ball.linear_velocity = Vector2(1000, 0)
 
 
 func _ready():
-	action_state = 
+	state_factory = StateFactory.new()
+	change_state("idle")
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and $balloon_timer.is_stopped():
 		shoot_balloon()
 
 
@@ -32,13 +30,27 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+func change_state(new_state_name):
+	if state != null:
+		state.queue_free()
+	state = state_factory.get_state(new_state_name).new()
+	state.setup(Callable(self, "change_state"), $animatedSprite, self)
+	add_child(state)
+	state.name = "current_state" #for clarity purposes in the editor
+		
+func shoot_balloon():
+	var ball: RigidBody2D = balloon_scene.instantiate()
+	get_parent().add_child(ball)
+	ball.position = position
+	ball.linear_velocity = Vector2(1000, 0)
+	$balloon_timer.wait_time = balloon_cooldown
+	$balloon_timer.start()
+	
+	#var direction: int = Input.get_axis("move_left", "move_right")
+	#if direction:
+	#	velocity.x = direction * SPEED
+	#else:
+	#	velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction: int = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
+	#move_and_slide()

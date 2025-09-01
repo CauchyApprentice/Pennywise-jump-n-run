@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt2dl1gdt055f"]
+[gd_scene load_steps=3 format=3 uid="uid://bt2dl1gdt055f"]
+
+[ext_resource type="Texture2D" uid="uid://j41x5khiqb71" path="res://Sprites/sewers_sketch.png" id="1_3pv60"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_xqnpj"]
 size = Vector2(1920, 1080)
@@ -8,3 +10,7 @@ size = Vector2(1920, 1080)
 [node name="background" type="MeshInstance2D" parent="."]
 modulate = Color(0.670588, 1, 0.176471, 1)
 mesh = SubResource("QuadMesh_xqnpj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("1_3pv60")
