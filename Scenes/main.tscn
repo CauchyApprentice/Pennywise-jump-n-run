@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bptuv2df0j6aj"]
+
+[ext_resource type="PackedScene" uid="uid://bt2dl1gdt055f" path="res://Scenes/level.tscn" id="5_7shhw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="level" parent="." instance=ExtResource("5_7shhw")]
+z_index = -1
+scale = Vector2(0.54, 0.54)

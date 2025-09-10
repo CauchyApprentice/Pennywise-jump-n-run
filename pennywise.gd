@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 const SPEED = 600
-const JUMP_VELOCITY = -400
-var balloon_scene = preload("res://balloon.tscn")
+const JUMP_VELOCITY = -600
+var balloon_scene = preload("res://Scenes/balloon.tscn")
 var balloon_cooldown: float = 0.3
 var balloon_offset: float = 70
 

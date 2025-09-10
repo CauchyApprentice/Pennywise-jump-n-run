@@ -1,24 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvc8gdgtnsp4y"]
 
-[ext_resource type="Script" path="res://balloon.gd" id="1_ch5ni"]
-[ext_resource type="Texture2D" uid="uid://co4tvcggvuv7s" path="res://Sprites/balloon.png" id="1_mip2d"]
+[ext_resource type="Script" path="res://balloon.gd" id="1_srwad"]
+[ext_resource type="Texture2D" uid="uid://co4tvcggvuv7s" path="res://Sprites/balloon.png" id="2_rie8c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1a5d"]
 radius = 19.23
 height = 47.45
 
-[node name="balloon" type="RigidBody2D"]
-collision_layer = 2
-collision_mask = 15
+[node name="balloon" type="RigidBody2D" groups=["balloon"]]
+collision_layer = 16
+collision_mask = 31
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, -13)
 linear_damp_mode = 1
 linear_damp = 2.5
-script = ExtResource("1_ch5ni")
+script = ExtResource("1_srwad")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.015, 0.015)
-texture = ExtResource("1_mip2d")
+texture = ExtResource("2_rie8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.65)
