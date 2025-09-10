@@ -1,6 +1,6 @@
-extends Node2D
+extends RigidBody2D
 
-var life_time: float = 6
+var life_time: float = 30 #6 if not debugging
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,3 +12,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if $lifeTimer.is_stopped():
 		queue_free()
+
+func _physics_process(delta: float) -> void:
+	apply_central_force(Vector2.UP * 1050)
+	if rotation:
+		apply_torque(-rotation * 200)

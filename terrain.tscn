@@ -6,6 +6,8 @@ size = Vector2(20, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncure"]
 
 [node name="terrain" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 visible = false
