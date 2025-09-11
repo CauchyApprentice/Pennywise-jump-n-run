@@ -24,6 +24,7 @@ window/size/viewport_height=1080
 
 player=""
 balloon=""
+terrain=""
 
 [input]
 
@@ -58,6 +59,8 @@ shoot={
 [layer_names]
 
 2d_physics/layer_1="rest"
+2d_physics/layer_2="bullet"
 2d_physics/layer_3="level"
 2d_physics/layer_4="player"
 2d_physics/layer_5="entity"
+2d_physics/layer_6="balloon"

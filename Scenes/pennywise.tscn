@@ -30,8 +30,8 @@ animations = [{
 
 [node name="pennywise" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.025, 0.025)
-collision_layer = 8
-collision_mask = 23
+collision_layer = 24
+collision_mask = 55
 script = ExtResource("1_km5l2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -52,3 +52,5 @@ texture = ExtResource("4_jqqo4")
 
 [node name="balloon_timer" type="Timer" parent="."]
 one_shot = true
+
+[connection signal="bullet_hit" from="." to="." method="_on_bullet_hit"]

@@ -1,16 +1,17 @@
 extends CharacterBody2D
 
 
-const SPEED = 600
 const JUMP_VELOCITY = -600
 var balloon_scene = preload("res://Scenes/balloon.tscn")
 var balloon_cooldown: float = 0.3
-var balloon_offset: float = 70
+var balloon_offset: Vector2 = Vector2(80, 0)
 
 var state: State
 var state_factory: StateFactory
 
 var direction: int = 1 # 1 for pos x, -1 for neg x
+
+signal bullet_hit(bullet: Node2D)
 
 
 
@@ -51,7 +52,12 @@ func shoot_balloon():
 	var ball: RigidBody2D = balloon_scene.instantiate()
 	get_parent().add_child(ball)
 	ball.position = position
-	ball.position.x += direction * balloon_offset
-	ball.linear_velocity = Vector2(direction * 500, 0)
+	ball.position += direction * balloon_offset
+	ball.linear_velocity = Vector2(direction * 500, 150)
+	ball.linear_velocity += velocity
 	$balloon_timer.wait_time = balloon_cooldown
 	$balloon_timer.start()
+
+
+func _on_bullet_hit(bullet: Node2D) -> void:
+	bullet.queue_free()

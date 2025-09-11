@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-var life_time: float = 30 #6 if not debugging
+signal bullet_hit(bullet: Node2D)
+var life_time: float = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,3 +18,8 @@ func _physics_process(delta: float) -> void:
 	apply_central_force(Vector2.UP * 1050)
 	if rotation:
 		apply_torque(-rotation * 200)
+
+
+func _on_bullet_hit(bullet: Node2D) -> void:
+	bullet.queue_free()
+	queue_free()
