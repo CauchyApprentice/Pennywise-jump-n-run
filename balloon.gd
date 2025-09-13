@@ -13,6 +13,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if $lifeTimer.is_stopped():
 		queue_free()
+		
+	increase_size(0.0001)
 
 func _physics_process(delta: float) -> void:
 	apply_central_force(Vector2.UP * 1050)
@@ -23,3 +25,8 @@ func _physics_process(delta: float) -> void:
 func _on_bullet_hit(bullet: Node2D) -> void:
 	bullet.queue_free()
 	queue_free()
+
+
+func increase_size(increment: float):
+	$Sprite2D.scale.x += increment
+	$Sprite2D.scale.y += increment

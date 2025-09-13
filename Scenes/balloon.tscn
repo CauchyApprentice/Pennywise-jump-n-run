@@ -17,11 +17,12 @@ linear_damp = 2.5
 script = ExtResource("1_srwad")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -22.22)
 scale = Vector2(0.015, 0.015)
 texture = ExtResource("2_rie8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4.65)
+position = Vector2(0, -27.09)
 shape = SubResource("CapsuleShape2D_t1a5d")
 
 [node name="lifeTimer" type="Timer" parent="."]

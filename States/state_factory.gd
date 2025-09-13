@@ -8,7 +8,8 @@ var states: Dictionary
 func _init() -> void:
 	states = {
 		"idle" : IdleState,
-		"running" : RunningState
+		"running" : RunningState,
+		"inflate" : InflateState
 	}
 
 

@@ -4,7 +4,7 @@ extends CharacterBody2D
 const JUMP_VELOCITY = -600
 var balloon_scene = preload("res://Scenes/balloon.tscn")
 var balloon_cooldown: float = 0.3
-var balloon_offset: Vector2 = Vector2(80, 0)
+var balloon_offset: Vector2 = Vector2(100, 0)
 
 var state: State
 var state_factory: StateFactory

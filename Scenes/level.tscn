@@ -51,7 +51,6 @@ tile_set = SubResource("TileSet_xkysm")
 
 [node name="pennywise" parent="." instance=ExtResource("2_uuseu")]
 position = Vector2(-93, -595)
-scale = Vector2(0.05, 0.05)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -332)

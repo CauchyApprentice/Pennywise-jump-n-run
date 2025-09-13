@@ -19,7 +19,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	sprint_progression(delta)
 	
-	var direction: int = Input.get_axis("move_left", "move_right")
+	var direction: int = Input.get_axis("left", "right")
 	set_sprite_direction(direction)
 	if direction:
 		player.direction = direction
