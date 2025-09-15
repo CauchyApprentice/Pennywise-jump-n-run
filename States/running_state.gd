@@ -16,6 +16,14 @@ func _ready() -> void:
 	animated_sprite.play("running")
 
 		
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("shoot"):
+		if Input.is_action_pressed("down"):
+			change_state.call("inflate")
+		elif player.get_node("balloon_timer").is_stopped():
+			player.shoot_balloon()
+
+		
 func _physics_process(delta: float) -> void:
 	sprint_progression(delta)
 	

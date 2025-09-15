@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 
+class_name Player
+
 const JUMP_VELOCITY = -600
 var balloon_scene = preload("res://Scenes/balloon.tscn")
 var balloon_cooldown: float = 0.3
-var balloon_offset: Vector2 = Vector2(100, 0)
+var balloon_offset_x: float = 100
 
 var state: State
 var state_factory: StateFactory
@@ -22,8 +24,7 @@ func _ready():
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("shoot") and $balloon_timer.is_stopped():
-		shoot_balloon()
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -49,12 +50,13 @@ func change_state(new_state_name):
 	state.name = "current_state" #for clarity purposes in the editor
 		
 func shoot_balloon():
-	var ball: RigidBody2D = balloon_scene.instantiate()
+	var ball: Balloon = balloon_scene.instantiate()
 	get_parent().add_child(ball)
 	ball.position = position
-	ball.position += direction * balloon_offset
+	ball.position.x += direction * balloon_offset_x
 	ball.linear_velocity = Vector2(direction * 500, 150)
 	ball.linear_velocity += velocity
+	ball.start_life_timer()
 	$balloon_timer.wait_time = balloon_cooldown
 	$balloon_timer.start()
 

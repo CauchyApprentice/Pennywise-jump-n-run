@@ -4,7 +4,7 @@ class_name State
 
 var change_state: Callable
 var animated_sprite: AnimatedSprite2D
-var player: CharacterBody2D
+var player: Player
 
 func setup(change_state, animated_sprite, player):
 	self.change_state = change_state

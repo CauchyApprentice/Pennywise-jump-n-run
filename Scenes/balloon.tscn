@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://co4tvcggvuv7s" path="res://Sprites/balloon.png" id="2_rie8c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1a5d"]
+resource_local_to_scene = true
 radius = 19.23
 height = 47.45
 
