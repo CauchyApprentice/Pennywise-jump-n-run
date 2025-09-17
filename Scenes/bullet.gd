@@ -17,6 +17,4 @@ func _physics_process(delta: float) -> void:
 		if collider.is_in_group("terrain"):
 			queue_free()
 		elif collider.is_in_group("player") or collider.is_in_group("balloon"):
-			if collider.is_in_group("balloon"):
-				print("i float")
 			collider.bullet_hit.emit(self)

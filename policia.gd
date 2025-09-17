@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var range: float = 1000
 var bullet_scene := preload("res://Scenes/bullet.tscn")
-var bullet_cooldown: float = 0.7
+var bullet_cooldown: float = 1.5
 var bullet_offset: Vector2 = Vector2(-70, 0)
 
 
